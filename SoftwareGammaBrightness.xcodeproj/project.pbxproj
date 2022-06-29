@@ -8,10 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		3051839B286CA4DB00CF4777 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3051839A286CA4DB00CF4777 /* Display.swift */; };
+		3051839E286CA66E00CF4777 /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3051839D286CA66E00CF4777 /* DisplayManager.swift */; };
+		305183A3286CA76B00CF4777 /* ExternalDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305183A1286CA76B00CF4777 /* ExternalDisplay.swift */; };
+		305183A4286CA76B00CF4777 /* InternalDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305183A2286CA76B00CF4777 /* InternalDisplay.swift */; };
+		305183A7286CB4B500CF4777 /* NSScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305183A6286CB4B500CF4777 /* NSScreen+Extension.swift */; };
+		305183AA286CB4F900CF4777 /* CGDirectDisplayID+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305183A9286CB4F900CF4777 /* CGDirectDisplayID+Extension.swift */; };
+		305183AD286CB53300CF4777 /* Display+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305183AC286CB53300CF4777 /* Display+Extension.swift */; };
+		305183B1286CB6AA00CF4777 /* CoreDisplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305183B0286CB6A900CF4777 /* CoreDisplay.framework */; };
+		305183B2286CB6AA00CF4777 /* CoreDisplay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 305183B0286CB6A900CF4777 /* CoreDisplay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		305183B8286CBE4500CF4777 /* EnsureGlobalQueuesDrained.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305183B7286CBE4500CF4777 /* EnsureGlobalQueuesDrained.swift */; };
 		30B88189286CA48600415C11 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B88188286CA48600415C11 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		305183B3286CB6AA00CF4777 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				305183B2286CB6AA00CF4777 /* CoreDisplay.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30B88183286CA48600415C11 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -25,6 +45,15 @@
 
 /* Begin PBXFileReference section */
 		3051839A286CA4DB00CF4777 /* Display.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
+		3051839D286CA66E00CF4777 /* DisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayManager.swift; sourceTree = "<group>"; };
+		305183A1286CA76B00CF4777 /* ExternalDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalDisplay.swift; sourceTree = "<group>"; };
+		305183A2286CA76B00CF4777 /* InternalDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalDisplay.swift; sourceTree = "<group>"; };
+		305183A6286CB4B500CF4777 /* NSScreen+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSScreen+Extension.swift"; sourceTree = "<group>"; };
+		305183A9286CB4F900CF4777 /* CGDirectDisplayID+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGDirectDisplayID+Extension.swift"; sourceTree = "<group>"; };
+		305183AC286CB53300CF4777 /* Display+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Display+Extension.swift"; sourceTree = "<group>"; };
+		305183B0286CB6A900CF4777 /* CoreDisplay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreDisplay.framework; path = ../../../../System/Library/Frameworks/CoreDisplay.framework; sourceTree = "<group>"; };
+		305183B4286CB6EC00CF4777 /* SoftwareGammaBrightness-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoftwareGammaBrightness-Bridging-Header.h"; sourceTree = "<group>"; };
+		305183B7286CBE4500CF4777 /* EnsureGlobalQueuesDrained.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnsureGlobalQueuesDrained.swift; sourceTree = "<group>"; };
 		30B88185286CA48600415C11 /* SoftwareGammaBrightness */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SoftwareGammaBrightness; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B88188286CA48600415C11 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -34,17 +63,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				305183B1286CB6AA00CF4777 /* CoreDisplay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		305183AF286CB6A900CF4777 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				305183B0286CB6A900CF4777 /* CoreDisplay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		30B8817C286CA48600415C11 = {
 			isa = PBXGroup;
 			children = (
 				30B88187286CA48600415C11 /* SoftwareGammaBrightness */,
 				30B88186286CA48600415C11 /* Products */,
+				305183AF286CB6A900CF4777 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +100,14 @@
 			children = (
 				30B88188286CA48600415C11 /* main.swift */,
 				3051839A286CA4DB00CF4777 /* Display.swift */,
+				305183A1286CA76B00CF4777 /* ExternalDisplay.swift */,
+				305183A2286CA76B00CF4777 /* InternalDisplay.swift */,
+				3051839D286CA66E00CF4777 /* DisplayManager.swift */,
+				305183A6286CB4B500CF4777 /* NSScreen+Extension.swift */,
+				305183A9286CB4F900CF4777 /* CGDirectDisplayID+Extension.swift */,
+				305183AC286CB53300CF4777 /* Display+Extension.swift */,
+				305183B4286CB6EC00CF4777 /* SoftwareGammaBrightness-Bridging-Header.h */,
+				305183B7286CBE4500CF4777 /* EnsureGlobalQueuesDrained.swift */,
 			);
 			path = SoftwareGammaBrightness;
 			sourceTree = "<group>";
@@ -75,6 +122,7 @@
 				30B88181286CA48600415C11 /* Sources */,
 				30B88182286CA48600415C11 /* Frameworks */,
 				30B88183286CA48600415C11 /* CopyFiles */,
+				305183B3286CB6AA00CF4777 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -96,6 +144,7 @@
 				TargetAttributes = {
 					30B88184286CA48600415C11 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -122,8 +171,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				305183AD286CB53300CF4777 /* Display+Extension.swift in Sources */,
+				305183A7286CB4B500CF4777 /* NSScreen+Extension.swift in Sources */,
+				305183B8286CBE4500CF4777 /* EnsureGlobalQueuesDrained.swift in Sources */,
 				3051839B286CA4DB00CF4777 /* Display.swift in Sources */,
+				305183A4286CA76B00CF4777 /* InternalDisplay.swift in Sources */,
+				305183A3286CA76B00CF4777 /* ExternalDisplay.swift in Sources */,
+				305183AA286CB4F900CF4777 /* CGDirectDisplayID+Extension.swift in Sources */,
 				30B88189286CA48600415C11 /* main.swift in Sources */,
+				3051839E286CA66E00CF4777 /* DisplayManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,10 +304,18 @@
 		30B8818D286CA48600415C11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 86HDH9K924;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SoftwareGammaBrightness/SoftwareGammaBrightness-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -259,10 +323,17 @@
 		30B8818E286CA48600415C11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 86HDH9K924;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SoftwareGammaBrightness/SoftwareGammaBrightness-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
