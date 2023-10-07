@@ -68,7 +68,16 @@ updateDisplays()
 let displays = DisplayManager.shared.getAffectedDisplays()!
 displays.forEach{print($0.getSwBrightness())} // 100 is default
 //displays.forEach{$0.setSwBrightness(value: 30, smooth: true)}
-displays.forEach{$0.setSwBrightness(value: 50, smooth: false)}
+displays.forEach{$0.setSwBrightness(value:
+                                    //10
+                                    //20
+                                        32 //good
+                                        //37
+                                        //35
+                                    //40
+                                    ///45
+                                    //50
+                                    , smooth: false, redFactor: 1.075, greenFactor: 0.9, blueFactor: 0.8)}
 
 dispatchMain()
 //displays.forEach{$0.swBrightnessSemaphore.wait()}

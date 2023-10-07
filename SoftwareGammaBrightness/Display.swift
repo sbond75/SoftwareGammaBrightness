@@ -106,7 +106,7 @@ class Display {
   }
 
   let swBrightnessSemaphore = DispatchSemaphore(value: 1)
-    func setSwBrightness(value: UInt8, smooth: Bool = false) { //}-> Bool {
+    func setSwBrightness(value: UInt8, smooth: Bool = false, redFactor: CGGammaValue = 1, greenFactor: CGGammaValue = 1, blueFactor: CGGammaValue = 1) { //}-> Bool {
     let brightnessValue: UInt8 = min(getSwMaxBrightness(), value)
     var currentValue = Float(self.getSwBrightnessPrefValue()) / Float(self.getSwMaxBrightness())
     self.saveSwBirghtnessPrefValue(Int(brightnessValue))
@@ -164,7 +164,7 @@ class Display {
         // value = Min + ((Max - Min) * pow(index, Gamma))
         // The resulting values are converted to a machine-specific format and loaded into display hardware.
         // "} :
-        let err2 = CGSetDisplayTransferByFormula(self.identifier, redMin, redMax, redGamma + transientValue, greenMin, greenMax, greenGamma + transientValue, blueMin, blueMax, blueGamma + transientValue)
+        let err2 = CGSetDisplayTransferByFormula(self.identifier, redMin, redMax, redGamma + transientValue*redFactor, greenMin, greenMax, greenGamma + transientValue*greenFactor, blueMin, blueMax, blueGamma + transientValue*blueFactor)
         
         print("err2:",err2.rawValue)
         guard err2 == .success else { fatalError() }
