@@ -64,6 +64,15 @@ func reset() {
     DisplayManager.shared.getAffectedDisplays()?.forEach{$0.resetSwBrightness()} // 100 is default
 }
 
+let brightnessValue__: String? = CommandLine.arguments.count <= 1 ? nil : CommandLine.arguments[1]
+guard let brightnessValue_ = brightnessValue__ else {
+    print("Must provide a brightness value argument. Exiting.")
+    exit(1)
+}
+guard let brightnessValue = UInt8(brightnessValue_) else {
+    print("Must provide an unsigned 8-bit integer for the brightness value. Exiting.")
+    exit(1)
+}
 updateDisplays()
 let displays = DisplayManager.shared.getAffectedDisplays()!
 displays.forEach{print($0.getSwBrightness())} // 100 is default
@@ -71,12 +80,15 @@ displays.forEach{print($0.getSwBrightness())} // 100 is default
 displays.forEach{$0.setSwBrightness(value:
                                     //10
                                     //20
-                                        32 //good
+                                        //32 //good
                                         //37
                                         //35
                                     //40
                                     ///45
                                     //50
+    
+                                    brightnessValue
+    
                                     , smooth: false, redFactor: 1.075, greenFactor: 0.9, blueFactor: 0.8)}
 
 dispatchMain()
